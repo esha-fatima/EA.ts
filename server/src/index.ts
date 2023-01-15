@@ -1,9 +1,11 @@
 import express, { Request, Response } from "express";
-import mongoose from "mongoose";
+import { database } from "./db/db";
 const app = express();
 
 // esh, fix this
-const database = await mongoose.connect("mongodb://127.0.0.1:27017/test");
+
+database()
+
 
 app.get("/", (req: Request, res: Response) => {
   res.send("server running");
