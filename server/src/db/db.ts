@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 const {MongoClient} = require('mongodb');
 export const database = async()=>{
-    const uri = "mongodb+srv://EshAhmed:Rapunzel26Ra@cluster0.okvrpxs.mongodb.net/test";
+    const uri = process.env.URI;
     const client = new MongoClient(uri);
  
     try {
