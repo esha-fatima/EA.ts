@@ -1,16 +1,18 @@
 import express, { Request, Response } from "express";
+require("dotenv").config();
 import { database } from "./db/db";
-require("dotenv").config()
 
+const PORT: number = 5000;
 const app = express();
 
-// esh, fix this
+async function connectDb() {
+  await database();
+}
 
-database()
-
+connectDb();
 
 app.get("/", (req: Request, res: Response) => {
-  res.send("server running");
+  res.send(`server running at port: ${PORT}`);
 });
 
-app.listen(5000);
+app.listen(PORT);
