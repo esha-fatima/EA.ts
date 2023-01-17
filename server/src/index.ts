@@ -1,6 +1,7 @@
 import express, { Request, Response } from "express";
-require("dotenv").config()
 import { database } from "./db/db";
+require("dotenv").config()
+
 const app = express();
 
 // esh, fix this
