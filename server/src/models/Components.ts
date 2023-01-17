@@ -23,6 +23,6 @@ const GradedComponents = new Schema({
 
 });
 
-const StudentModel = mongoose.model("GradedComponents", GradedComponents);
+const GradedComponentsModel = mongoose.model("GradedComponents", GradedComponents);
 
-export default StudentModel;
+export default GradedComponentsModel;
