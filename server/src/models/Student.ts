@@ -12,7 +12,7 @@ const Student = new Schema({
   fullName: {type:String},
   rollNumber: String,
   password: String,
-  //status: {type:STUDENT_STATUS, default: STUDENT_STATUS.ACTIVE},
+  
 });
 
 const StudentModel = mongoose.model("student", Student);
