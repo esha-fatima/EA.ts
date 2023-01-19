@@ -1,11 +1,12 @@
-import mongoose from "mongoose";
+import mongoose, {ConnectOptions} from "mongoose";
 const { MongoClient } = require("mongodb");
 import StudentModel from "../models/Student";
-
+ 
 const uri = process.env.URI;
 
 export const database = async () => {
   const uri = process.env.URI;
+  console.log("uri is", uri)
   const client = new MongoClient(uri);
 
   try {
@@ -32,18 +33,28 @@ export const database = async () => {
 };
 
 export const addStudent = async()=>{
-  mongoose.connect("mongodb+srv://EshAhmed:Rapunzel26Ra@cluster0.okvrpxs.mongodb.net/Users?retryWrites=true&w=majority").then(()=>{
-    const newStudent = new StudentModel({
+  mongoose.connect(("mongodb+srv://EshAhmed:Rapunzel26Ra@cluster0.okvrpxs.mongodb.net/Users?retryWrites=true&w=majority"),
+  { 
+    useNewUrlParser : true,
+    useUnifiedTopology: true } as ConnectOptions).then(()=>{
 
-      fullName: "Esha Fatima",
-      rollNumber: "23100201",
-    });
-    newStudent.save((e)=>{
-      if(e){
-        console.log(e)
-      }
+      const newStudent = new StudentModel({
+
+        fullName: "Esha Fatima",
+        rollNumber: "23100201",
+      });
+      newStudent.save((e)=>{
+        if(e){
+          console.log(e)
+        }
+      })
+
     })
-  })
+
+          
+
+        
+    
   
 }
 
